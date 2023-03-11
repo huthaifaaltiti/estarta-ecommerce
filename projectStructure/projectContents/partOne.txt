@@ -1,0 +1,23 @@
+- Redux Thunk: it's a middleware of our redux process, that allows us to dispatch an action not an object.
+
+  - Function that returns a function:
+
+    function funcName () {
+      return (dispatch) => {
+        ....
+       }
+     }
+
+    - or we can re-write the upper function in another way called (carrying):
+      
+      const funcName = () => (dispatch) => {
+        ....
+      }
+
+    - This funcName () is called action creator, and it's role is just to return an action insid a function.
+
+- Redux-Thunk benefits: 
+
+  - Dispatch has an async behavior.
+
+  - More readable.
