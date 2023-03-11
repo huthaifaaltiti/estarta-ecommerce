@@ -21,3 +21,13 @@
   - Dispatch has an async behavior.
 
   - More readable.
+
+- We have to put every project feature in a gitHub branch them merge it.
+
+- If project is built by Vite, any component returns a JSX so the file extension should be (.jsx).
+
+- To build the store:
+
+  1 - Build a redux folder => store.js => import store inside index.js => create AllReducers.js inside redux folder and then pass it to store.
+
+    - we have to "think" about our project path, so here in this project we need a reducer for products, user, and for cart. => build a folder inside redux folder for each one of reducers => build a constants.js file inside products folder (each reducer will have three .js files: constants, reducer, and actions), we can have a benefit of this constants file to edit in one place.
