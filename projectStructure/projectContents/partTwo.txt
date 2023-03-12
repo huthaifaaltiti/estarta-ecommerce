@@ -1,0 +1,3 @@
+- For auth. we will use magic sdk library. => download it using npm i magik-sdk => inside src create lib folder. => after registration will get 2 keys 
+
+- Reducer is a function that returns object under conditions.

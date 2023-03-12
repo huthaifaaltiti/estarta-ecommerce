@@ -4,10 +4,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 // styles
 import "./App.css";
+// component
+import NavBar from "./components/NavBar";
 
 // pages
-const Home = lazy(() => import("./pages/Cart/index"));
-const Login = lazy(() => import("./pages/Login/index"));
+const Home = lazy(() => import("./pages/Home/index"));
+const LoginPage = lazy(() => import("./pages/Login/index"));
 const Products = lazy(() => import("./pages/Products/index"));
 const NotFound = lazy(() => import("./pages/NotFound/index"));
 const Cart = lazy(() => import("./pages/Cart/index"));
@@ -17,9 +19,11 @@ function App() {
     <div className="App">
       <Suspense fallback={"Loading..."}>
         <BrowserRouter>
+          <NavBar />
+
           <Routes>
             <Route index element={<Home />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/Login" element={<LoginPage />} />
             <Route path="/products" element={<Products />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="*" element={<NotFound />} />
