@@ -11,6 +11,12 @@ export default function NavBar() {
         <div className={Styles.logo}>Estarta E-Commerce</div>
       </Link>
 
+{/* {!isAuth && (  <div className={Styles.divBtn}>
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
+      </div>)} */}
+      
       <div className={Styles.divBtn}>
         <Link to="/login">
           <button>Login</button>
