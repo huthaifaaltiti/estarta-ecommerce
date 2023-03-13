@@ -2,9 +2,7 @@
 import * as AUTH_USER_CONSTANTS from "./constants";
 // magic
 import magic from "../../lib/magic-sdk";
-// react-router-dom
 
-// Note: action is simply a function
 export function Login(email) {
   return async (dispatch) => {
     dispatch({

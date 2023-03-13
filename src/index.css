@@ -1,10 +1,77 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800;900&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: 'Commissioner', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+
+  background-color: var(--color-gry);
+  color: var(--color-txt);
+}
+
+:root {
+  /* Colors: */
+  --color-prim: #181823;
+  --color-prim-d-1: #161620;
+  --color-prim-d-2: #111119;
+  --color-prim-d-3: #0a0a0e;
+  --color-prim-l-1: #2f2f39;
+  --color-prim-l-2: #46464f;
+  --color-prim-l-3: #5d5d65;
+
+  --color-scd: #537fe7;
+  --color-scd-d-1: #4b72d0;
+  --color-scd-d-2: #4266b9;
+  --color-scd-d-3: #3a59a2;
+  --color-scd-l-1: #648ce9;
+  --color-scd-l-2: #7599ec;
+  --color-scd-l-3: #87a5ee;
+
+  --color-thd: #c0eef2;
+  --color-thd-d-1: #add6da;
+  --color-thd-d-2: #9abec2;
+  --color-thd-d-3: #86a7a9;
+  --color-thd-l-1: #c6f0f3;
+  --color-thd-l-2: #cdf1f5;
+  --color-thd-l-3: #d9f5f7;
+
+  --color-gry: #f4f5f9;
+  --color-gry-d-1: #dcdde0;
+  --color-gry-d-2: #c3c4c7;
+  --color-gry-d-3: #abacae;
+  --color-gry-l-1: #f5f6fa;
+  --color-gry-l-2: #f7f8fb;
+  --color-gry-l-3: #fcfcfd;
+
+  --color-txt: #585B60;
+  --color-txt-d-1: #4f5256;
+  --color-txt-d-2: #46494d;
+  --color-txt-d-3: #3e4043;
+  --color-txt-l-1: #696b70;
+  --color-txt-l-2: #797c80;
+  --color-txt-l-3: #acadb0;
+
+  --color-blk: #2c272e;
+  --color-wht: #fffbf5;
+
+  /* Shadows: */
+  --shadow-1: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  --shadow-2: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --shadow-3: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  --shadow-4: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  --shadow-5: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 code {
