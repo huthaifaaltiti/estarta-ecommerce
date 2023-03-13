@@ -17,7 +17,7 @@ export default function NavBar() {
   const [showLoginBtn, setShowLoginBtn] = useState(true);
 
   useEffect(() => {
-    if (locationOfUser.pathname === "/" || "/login") {
+    if (locationOfUser.pathname === "/" || locationOfUser.pathname === "/login") {
       setShowLoginBtn(false);
     }
   }, []);
