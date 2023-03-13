@@ -3,7 +3,7 @@ import * as AUTH_USER_CONSTANTS from "./constants";
 
 //  auth reducer
 const initState = {
-  // at actions file we got a token and user in localstorage so if these data still found, isAuth should be true always and the user will be auth. => !! convert string to bool
+  // at actions file we got a token and user in local storage so if these data still found, isAuth should be true always and the user will be auth. => !! converts string to boolean
   isAuth: !!localStorage.getItem("token") || false, 
   user: JSON.parse(localStorage.getItem("user")) || {},
   token: null,

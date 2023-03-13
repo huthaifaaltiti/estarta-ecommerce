@@ -1,4 +1,4 @@
-// Auth constants
+// Auth reducer constants
 import * as AUTH_USER_CONSTANTS from "./constants";
 // magic
 import magic from "../../lib/magic-sdk";
@@ -10,13 +10,13 @@ export function Login(email) {
     });
 
     try {
+      // magic in-built method
       const res = await magic.auth.loginWithMagicLink({ email });
       if (res) {
         // magic API methods to get token and user email
         const Token = await magic.user.getIdToken();
         const userMetadata = await magic.user.getMetadata();
 
-        // after user logged in put some data in local storage
         localStorage.setItem("token", Token);
         // setItem("key", itsValue) the value should be string so userMetadata is an object so should convert it
         localStorage.setItem("user", JSON.stringify(userMetadata));
