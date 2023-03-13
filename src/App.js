@@ -8,7 +8,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 
 // pages
-const Home = lazy(() => import("./pages/Home/index"));
+const Welcome = lazy(() => import("./pages/Welcome/index"));
 const LoginPage = lazy(() => import("./pages/Login/index"));
 const Products = lazy(() => import("./pages/Products/index"));
 const NotFound = lazy(() => import("./pages/NotFound/index"));
@@ -22,7 +22,7 @@ function App() {
           <NavBar />
 
           <Routes>
-            <Route index element={<Home />} />
+            <Route index element={<Welcome />} />
             <Route path="/Login" element={<LoginPage />} />
             <Route path="/products" element={<Products />} />
             <Route path="/cart" element={<Cart />} />
