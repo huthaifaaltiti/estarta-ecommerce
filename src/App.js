@@ -1,7 +1,7 @@
 // API's, react
 import { lazy, Suspense } from "react";
 // react-router-dom
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 // redux
 import { useSelector } from "react-redux";
 // component
@@ -20,6 +20,16 @@ const Products = lazy(() => import("./pages/Products/index"));
 const NotFound = lazy(() => import("./pages/NotFound/index"));
 const Cart = lazy(() => import("./pages/Cart/index"));
 
+function ProtectedRoute({ element }) {
+  const { isAuth } = useSelector((state) => state.authReducer);
+
+  if (isAuth) {
+    return element;
+  } else {
+    return <Navigate to={"/login"} />;
+  }
+}
+
 function App() {
   const { loading } = useSelector((state) => state.authReducer);
 
@@ -36,8 +46,15 @@ function App() {
             <Route index element={<Welcome />} />
             <Route path="/home" element={<Home />} />
             <Route path="/Login" element={<Login />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/cart" element={<Cart />} />
+
+            <Route
+              path="/products"
+              element={<ProtectedRoute element={<Products />} />}
+            />
+            <Route
+              path="/cart"
+              element={<ProtectedRoute element={<Cart />} />}
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
