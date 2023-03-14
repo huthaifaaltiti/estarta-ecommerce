@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  font-family: 'Commissioner', sans-serif;
+  font-family: "Commissioner", sans-serif;
   font-size: 1.4rem;
   font-weight: 400;
 
@@ -54,7 +54,7 @@ body {
   --color-gry-l-2: #f7f8fb;
   --color-gry-l-3: #fcfcfd;
 
-  --color-txt: #585B60;
+  --color-txt: #585b60;
   --color-txt-d-1: #4f5256;
   --color-txt-d-2: #46494d;
   --color-txt-d-3: #3e4043;
@@ -66,12 +66,14 @@ body {
   --color-wht: #fffbf5;
 
   /* Shadows: */
-  --shadow-1: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-  --shadow-2: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  --shadow-3: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  --shadow-4: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  --shadow-5: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  --shadow-li-1: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --shadow-li-2: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --shadow-di-1: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --shadow-di-2: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  --shadow-int-1: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  --shadow-int-2: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 code {
