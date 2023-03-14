@@ -4,7 +4,7 @@ import * as AUTH_USER_CONSTANTS from "./constants";
 //  auth reducer
 const initState = {
   // at actions file we got a token and user in local storage so if these data still found, isAuth should be true always and the user will be auth. => !! converts string to boolean
-  isAuth: !!localStorage.getItem("token") || false, 
+  isAuth: !!localStorage.getItem("token") || false,
   user: JSON.parse(localStorage.getItem("user")) || {},
   token: null,
   loading: false,
@@ -34,6 +34,15 @@ function authReducer(state = initState, action) {
         error: null,
         user: action.payload.userMetadata,
         token: action.payload.Token,
+      };
+
+    case AUTH_USER_CONSTANTS.AUTH_USER_CLEAR:
+      return {
+        loading: false,
+        isAuth: false,
+        error: null,
+        user: {},
+        token: "",
       };
 
     default:
