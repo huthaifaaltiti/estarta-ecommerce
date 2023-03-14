@@ -28,16 +28,13 @@ export default function NotFound() {
       ></Player>
 
       <div className={styles.errorMessage}>
-      <span onClick={() => {
+        <span
+          onClick={() => {
             nav("/");
-          }}>
-
-        <BlueBtn
-          
-          text="back to home page"
-        />
-      </span>
-        
+          }}
+        >
+          <BlueBtn text="back to home page" />
+        </span>
       </div>
     </div>
   );

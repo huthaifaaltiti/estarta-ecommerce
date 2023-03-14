@@ -20,7 +20,7 @@ export default function NavBar() {
     if (locationOfUser.pathname === "/" || locationOfUser.pathname === "/login") {
       setShowLoginBtn(false);
     }
-  }, []);
+  }, [locationOfUser]);
 
   return (
     <nav>
