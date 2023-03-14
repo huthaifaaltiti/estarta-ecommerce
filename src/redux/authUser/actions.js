@@ -73,11 +73,20 @@ export const validateToken = () => async (dispatch) => {
   });
 
   try {
-    await magic.user.getIdToken();
+    const res = await magic.user.getIdToken();
+
+    if (res)
+      dispatch({
+        type: AUTH_USER_CONSTANTS.AUTH_USER_LOADING_OFF,
+      });
   } catch (error) {
     dispatch({
       type: AUTH_USER_CONSTANTS.AUTH_USER_ERROR,
       payload: error,
+    });
+
+    dispatch({
+      type: AUTH_USER_CONSTANTS.AUTH_USER_CLEAR,
     });
 
     localStorage.clear();

@@ -44,15 +44,15 @@ function ProtectedRoute({ element }) {
 function App() {
   const { loading, isAuth } = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
-  const localStorageToken = !!localStorage.getItem("token");
+
   const nav = useNavigate();
 
   useEffect(() => {
-    if (isAuth && localStorageToken)
+    if (isAuth)
       dispatch(validateToken()).then((res) => {
         if (!res) nav("/login");
       });
-  }, [localStorageToken]);
+  }, [isAuth]);
 
   // loading spinner
   if (loading) return <Spinner />;
@@ -60,25 +60,20 @@ function App() {
   return (
     <div className="App">
       <Suspense fallback={"Loading..."}>
-      
-          <NavBar />
+        <NavBar />
 
-          <Routes>
-            <Route index element={<Welcome />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/Login" element={<Login />} />
+        <Routes>
+          <Route index element={<Welcome />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/Login" element={<Login />} />
 
-            <Route
-              path="/products"
-              element={<ProtectedRoute element={<Products />} />}
-            />
-            <Route
-              path="/cart"
-              element={<ProtectedRoute element={<Cart />} />}
-            />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        
+          <Route
+            path="/products"
+            element={<ProtectedRoute element={<Products />} />}
+          />
+          <Route path="/cart" element={<ProtectedRoute element={<Cart />} />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </Suspense>
     </div>
   );
