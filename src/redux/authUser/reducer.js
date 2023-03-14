@@ -45,6 +45,12 @@ function authReducer(state = initState, action) {
         token: "",
       };
 
+    case AUTH_USER_CONSTANTS.AUTH_USER_LOADING_OFF:
+      return {
+        ...state,
+        loading: false,
+      };
+
     default:
       return state;
   }
