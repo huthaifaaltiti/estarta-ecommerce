@@ -1,13 +1,23 @@
 // API's, react
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+
 // react-router-dom
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useNavigate,
+  Navigate,
+} from "react-router-dom";
+
 // redux
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // component
 import NavBar from "./components/NavBar";
 // component
 import Spinner from "./components/Spinner";
+
+import { validateToken } from "./redux/authUser/actions";
 
 // styles
 import "./App.css";
@@ -17,10 +27,11 @@ const Welcome = lazy(() => import("./pages/Welcome/index"));
 const Home = lazy(() => import("./pages/Home/index"));
 const Login = lazy(() => import("./pages/Login/index"));
 const Products = lazy(() => import("./pages/Products/index"));
-const NotFound = lazy(() => import("./pages/NotFound/index"));
 const Cart = lazy(() => import("./pages/Cart/index"));
+const NotFound = lazy(() => import("./pages/NotFound/index"));
 
 function ProtectedRoute({ element }) {
+  // {element} as destructuring or props.element if passed (props)
   const { isAuth } = useSelector((state) => state.authReducer);
 
   if (isAuth) {
@@ -31,7 +42,17 @@ function ProtectedRoute({ element }) {
 }
 
 function App() {
-  const { loading } = useSelector((state) => state.authReducer);
+  const { loading, isAuth } = useSelector((state) => state.authReducer);
+  const dispatch = useDispatch();
+  const localStorageToken = !!localStorage.getItem("token");
+  const nav = useNavigate();
+
+  useEffect(() => {
+    if (isAuth && localStorageToken)
+      dispatch(validateToken()).then((res) => {
+        if (!res) nav("/login");
+      });
+  }, [localStorageToken]);
 
   // loading spinner
   if (loading) return <Spinner />;
@@ -39,7 +60,7 @@ function App() {
   return (
     <div className="App">
       <Suspense fallback={"Loading..."}>
-        <BrowserRouter>
+      
           <NavBar />
 
           <Routes>
@@ -57,7 +78,7 @@ function App() {
             />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
+        
       </Suspense>
     </div>
   );
