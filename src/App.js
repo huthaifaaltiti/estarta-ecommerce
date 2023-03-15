@@ -24,9 +24,9 @@ import "./App.css";
 
 // pages
 const Welcome = lazy(() => import("./pages/Welcome/index"));
-const Home = lazy(() => import("./pages/Home/index"));
+const Home = lazy(( ) => import("./pages/Home/index.js"))
 const Login = lazy(() => import("./pages/Login/index"));
-const Products = lazy(() => import("./pages/Products/index"));
+const Products = lazy(() => import("./pages/Products/index.js"))
 const Cart = lazy(() => import("./pages/Cart/index"));
 const NotFound = lazy(() => import("./pages/NotFound/index"));
 
