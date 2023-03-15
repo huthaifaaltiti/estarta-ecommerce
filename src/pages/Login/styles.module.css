@@ -43,7 +43,7 @@
   font-size: 1.4rem;
   line-height: 1.5;
   text-transform: uppercase;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
 
   border-radius: 0.5rem;
 
@@ -58,9 +58,64 @@
 
   cursor: pointer;
 
-  transition: all .1s linear;
+  transition: all 0.1s linear;
 }
 
 .loginPage button:hover {
   background-color: var(--color-scd-l-1);
+}
+
+/* Sector: Media queries */
+
+/* 500px / 16px = 31.25 */
+@media (max-width: 31em) {
+  .loginPage {
+    padding: 0 2rem;
+  }
+
+  .loginPage input {
+    width: 23rem;
+  }
+
+  .loginPage button {
+    width: auto;
+
+    font-weight: normal;
+  }
+}
+
+/* 410px / 16px = 25.625 */
+@media (max-width: 25em) {
+  .loginPage input {
+    width: 20rem;
+  }
+
+  .loginPage button {
+    width: auto;
+
+    font-weight: normal;
+
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+/* 340px / 16px = 21.25 */
+@media (max-width: 21em) {
+  .loginPage input {
+    width: 15rem;
+
+    font-size: 1.2rem;
+    line-height: 1.1;
+  }
+
+  .loginPage button {
+    width: auto;
+
+    font-weight: normal;
+    font-size: 1.2rem;
+    line-height: 1.1;
+    letter-spacing: 0px;
+
+    padding: 0.1rem 1.2rem;
+  }
 }

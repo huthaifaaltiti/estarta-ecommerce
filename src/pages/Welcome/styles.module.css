@@ -1,3 +1,4 @@
+/* Sector: main classes */
 .homePage {
   width: 100%;
   height: 88vh;
@@ -12,7 +13,7 @@
 }
 
 .h1 {
-  font-size: 5rem;
+  font-size: 4rem;
 
   color: var(--color-txt-d-1);
 
@@ -40,4 +41,82 @@
   bottom: 20%;
   left: 50%;
   transform: translate(-50%, 0);
+}
+
+/* Sector: Media queries */
+
+/* Note: rem and em do not depend on html font-size in media queries! Instead, 1rem = 1em = 16px  */
+
+/* 1050px / 16px = 65.625 */
+@media (max-width: 65em) {
+  .homePage {
+    padding: 0 2rem;
+  }
+
+  .h1 {
+    font-size: 3rem;
+  }
+
+  .h1Main {
+    font-size: 3rem;
+  }
+}
+
+/* 525px / 16px = 32.8125 */
+@media (max-width: 33em) {
+  .h1 {
+    font-size: 2.6rem;
+  }
+
+  .h1Main {
+    font-size: 2.6rem;
+  }
+}
+
+/* 460px / 16px = 28.75 */
+@media (max-width: 28em) {
+  .h1 {
+    font-size: 2.2rem;
+  }
+
+  .h1Main {
+    font-size: 2.2rem;
+  }
+}
+
+/* 340px / 16px = 21.25 */
+@media (max-width: 21em) {
+  .h1 {
+    font-size: 1.8rem;
+  }
+
+  .h1Main {
+    font-size: 1.8rem;
+  }
+}
+
+/* 330px / 16px = 20.625 */
+@media (max-width: 20em) {
+  .h1 {
+    font-size: 1.7rem;
+  }
+
+  .h1Main {
+    font-size: 1.7rem;
+  }
+
+  .h2 {
+    bottom: 25%;
+  }
+}
+
+/* 312px / 16px = 19.5 */
+@media (max-width: 19.5em) {
+  .h1 {
+    font-size: 1.5rem;
+  }
+
+  .h1Main {
+    font-size: 1.5rem;
+  }
 }

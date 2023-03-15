@@ -1,4 +1,4 @@
- .blueBtn {
+.blueBtn {
   background-color: var(--color-scd);
   color: var(--color-wht);
 
@@ -12,7 +12,7 @@
   font-weight: 500;
   line-height: 1.5;
   text-transform: uppercase;
-  letter-spacing: .7px;
+  letter-spacing: 0.7px;
 
   margin: 0;
   padding: 1rem 2rem;
@@ -34,6 +34,34 @@
 .blueBtn:hover {
   background-color: var(--color-scd-l-1);
 }
- .blueBtn:focus {
+.blueBtn:focus {
   background-color: var(--color-scd);
+}
+
+/* Sector: Media queries */
+
+/* 1050px / 16px = 65.625 */
+/* This query matched with Welcome page */
+@media (max-width: 65em) {
+  .blueBtn {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+}
+
+/* 460px / 16px = 28.75 */
+@media (max-width: 28em) {
+  .blueBtn {
+    font-size: 0.8rem;
+  }
+}
+
+
+/* 312px / 16px = 19.5 */
+@media (max-width: 19.5em) {
+  .blueBtn {
+    font-size: 0.8rem;
+
+    padding: 1rem 1.5rem;
+  }
 }
