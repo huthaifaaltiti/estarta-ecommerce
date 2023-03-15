@@ -10,10 +10,8 @@ export function Login(email) {
     });
 
     try {
-      // magic in-built method
       const res = await magic.auth.loginWithMagicLink({ email });
       if (res) {
-        // magic API methods to get token and user email
         const Token = await magic.user.getIdToken();
         const userMetadata = await magic.user.getMetadata();
 

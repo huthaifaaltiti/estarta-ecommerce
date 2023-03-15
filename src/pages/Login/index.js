@@ -16,7 +16,7 @@ export default function LoginPage() {
   const { isAuth, loading } = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
-  const navigate = useNavigate();
+  const nav = useNavigate();
 
   function handleLogin() {
     // 1st approach
@@ -35,7 +35,7 @@ export default function LoginPage() {
   // 2nd approach => to go to the home page after user has logged gis mail and gor auth
   useEffect(() => {
     if (isAuth) {
-      navigate("/products");
+      nav("/home");
     }
   }, [isAuth]);
 
@@ -47,7 +47,6 @@ export default function LoginPage() {
         placeholder="Enter your email"
       />
 
-      
       <button disabled={loading} onClick={handleLogin}>
         {loading ? "Loading.." : "Login"}
       </button>
