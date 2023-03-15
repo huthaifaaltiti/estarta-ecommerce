@@ -37,7 +37,7 @@ export default function Welcome() {
 
         <h2 className={styles.h2}>
           <Link to="/login">
-            <BlueBtn text="Login to continue" />
+            <BlueBtn className={styles.blueBtnWel} text="Login to continue" />
           </Link>
         </h2>
       </div>
