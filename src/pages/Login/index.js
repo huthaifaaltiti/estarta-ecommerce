@@ -35,7 +35,7 @@ export default function LoginPage() {
   // 2nd approach => to go to the home page after user has logged gis mail and gor auth
   useEffect(() => {
     if (isAuth) {
-      nav("/home");
+      nav("/products");
     }
   }, [isAuth]);
 

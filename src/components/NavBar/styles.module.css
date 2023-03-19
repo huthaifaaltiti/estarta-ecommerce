@@ -36,7 +36,7 @@ nav .divBtn button {
   text-transform: uppercase;
 
   margin: 0;
-  padding: .8rem 1.6rem;
+  padding: 0.8rem 1.6rem;
 
   overflow: hidden;
 
@@ -94,11 +94,20 @@ nav .divBtn button:focus {
   justify-content: center;
 }
 
+.navLinkProducts {
+  margin-right: 2rem;
+}
+
+.navLinkProducts,
+.navLinkHome {
+  font-size: 1.4rem;
+}
+
 .authUserFloatingBox {
   width: 4rem;
   height: auto;
 
-  background-color: var(--color-scd-l-2);
+  background-color: var(--color-scd);
   color: var(--color-wht);
   box-shadow: var(--shadow-di-1);
 
@@ -112,8 +121,18 @@ nav .divBtn button:focus {
   top: 80%;
   right: 0;
 
-  display: none;
-  visibility: hidden;
+  /* display: none;
+  visibility: hidden; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  visibility: visible;
+
+  z-index: 100000;
 }
 
 .authUserFloatingBox span:first-child {
@@ -127,21 +146,25 @@ nav .divBtn button:focus {
   border-bottom: 1px solid var(--color-scd-d-1);
 }
 
+.wishlist,
 .logoutContainer {
   cursor: pointer;
 
-  transition: all .1s linear;
+  transition: all 0.1s linear;
 }
 
+.wishlist:hover,
 .logoutContainer:hover {
   color: var(--color-scd-d-2);
 }
 
+.wishlist,
 .authUserData {
   font-size: 1.2rem;
   font-weight: 400;
 }
 
+.wishlist,
 .authUserFloatingBox span:last-child {
   display: flex;
   align-items: center;
@@ -152,7 +175,7 @@ nav .divBtn button:focus {
 }
 
 /* show hide block after hovering on user icon */
-.authUserFloatingBoxHovIcon:hover ~ .authUserFloatingBox,
+/* .authUserFloatingBoxHovIcon:hover ~ .authUserFloatingBox,
 .authUserFloatingBox:hover {
   display: flex;
   flex-direction: column;
@@ -161,7 +184,7 @@ nav .divBtn button:focus {
   gap: 1rem;
 
   visibility: visible;
-}
+} */
 
 /* Sector: Media queries */
 

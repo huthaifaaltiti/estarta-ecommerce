@@ -1,0 +1,234 @@
+/* Sector: main classes */
+
+.pageBody {
+  background-color: var(--color-gry);
+  border-radius: 0.9rem;
+
+  padding: 2rem 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  gap: 2rem;
+}
+
+.productsItem {
+  background-color: var(--color-wht);
+  border-radius: 0.5rem;
+
+  box-shadow: var(--shadow-di-2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.itemHeader {
+  width: 100%;
+
+  padding: 2rem;
+
+  border-radius: inherit;
+
+  position: relative;
+}
+
+.itemId {
+  width: 3rem;
+  height: 3rem;
+
+  background-color: var(--color-gry-l-3);
+  color: var(--color-scd);
+  box-shadow: var(--shadow-di-1);
+
+  border-radius: 0.5rem;
+
+  font-size: 1.6rem;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+}
+
+.itemNameIcon {
+  width: 4rem;
+  color: var(--color-scd);
+}
+
+.itemName {
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.itemReact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3rem;
+}
+
+.itemReact span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemReact span .itemNameHeartIcon {
+  display: inline-block;
+  visibility: visible;
+
+  transition: all 0.1s linear;
+}
+
+.itemReact span .itemNameFillHeartIcon {
+  display: none;
+  visibility: hidden;
+
+  transition: all 0.1s linear;
+}
+
+.itemReact span:hover .itemNameHeartIcon {
+  display: none;
+  visibility: hidden;
+}
+
+.itemReact span:hover .itemNameFillHeartIcon {
+  display: inline-block;
+  visibility: visible;
+}
+
+.itemNameFillHeartIcon:hover,
+.itemNameHeartIcon:hover,
+.itemNameAddCartIcon:hover {
+  cursor: pointer;
+
+  color: var(--color-scd-d-2);
+}
+
+.itemImgCont {
+  width: 100%;
+  height: 20rem;
+
+  padding: 0 1rem;
+
+  border-radius: 0.5rem;
+}
+
+.itemPic {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 0.5rem;
+  border-radius: inherit;
+}
+
+.itemFooter {
+  width: 100%;
+
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.itemPrice,
+.itemRating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.itemPrice span {
+  font-size: 1.2rem;
+
+  color: var(--color-scd-d-1);
+}
+
+.itemNameFillHeartIcon,
+.itemNameHeartIcon,
+.itemNameAddCartIcon,
+.itemPriceIcon,
+.itemRateIcon {
+  color: var(--color-scd);
+}
+
+.ratingStar {
+  color: var(--color-txt);
+}
+
+.itemPrice {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* Sector: Media quires */
+
+/* 1225px / 16px = 76.5625 */
+@media (max-width: 76em) {
+  .itemName {
+    font-size: 1.6rem;
+
+    gap: 1rem;
+  }
+
+  .itemId {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    font-size: 1.4rem;
+  }
+}
+
+/* 1240px / 16px = 71.25 */
+@media (max-width: 71em) {
+  .itemName {
+    font-size: 1.5rem;
+  }
+}
+
+/* 1009px / 16px = 63.0625 */
+@media (max-width: 63em) {
+  .pageBody {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 733px / 16px = 45.8125 */
+@media (max-width: 45em) {
+  .itemName {
+    font-size: 2rem;
+
+    gap: 2rem;
+  }
+
+  .itemId {
+    width: 3rem;
+    height: 3rem;
+
+    font-size: 1.6rem;
+  }
+
+  .pageBody {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 533px / 16px = 33.3125 */
+@media (max-width: 33em) {
+  .pageBody {
+    grid-template-columns: 1fr;
+  }
+}
