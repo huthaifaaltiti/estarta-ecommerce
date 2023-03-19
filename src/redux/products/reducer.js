@@ -1,4 +1,4 @@
-// import everything as product constants
+
 import * as PRODUCTS_CONSTANTS from "./constants";
 
 // products reducer

@@ -3,22 +3,21 @@ import React, { useEffect, useState } from "react";
 // redux
 import { useDispatch, useSelector } from "react-redux";
 // react-router-dom
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 // creator function
 import { Logout } from "../../redux/authUser/actions";
 
-
-
-// icon
-import { BiLogIn, BiUserPin, BiUser, BiCart, BiLogOut } from "react-icons/bi";
-// styles
+// styles, icons
 import styles from "./styles.module.css";
+import { BiLogIn, BiUserPin, BiUser, BiCart, BiLogOut } from "react-icons/bi";
+import { AiFillHeart } from "react-icons/ai";
 
 export default function NavBar() {
-  const { isAuth, user, loading } = useSelector((state) => state.authReducer);
+  const { isAuth, user } = useSelector((state) => state.authReducer);
 
   const locationOfUser = useLocation();
   const [showLoginBtn, setShowLoginBtn] = useState(true);
+  const [userBtnClicked, setUserBtnClicked] = useState(true);
 
   const dispatch = useDispatch();
   const nav = useNavigate();
@@ -33,13 +32,15 @@ export default function NavBar() {
   }, [locationOfUser]);
 
   function handleLogout() {
-    // dispatch returns promise, so anything get back from Logout(), res will catch it.
+    // dispatch returns promise, so anything get back from Logout(), "res" will catch it.
     dispatch(Logout()).then((res) => {
       if (res) nav("/home");
     });
   }
 
-
+  function handleUserPanel() {
+    setUserBtnClicked(!userBtnClicked);
+  }
 
   return (
     <nav>
@@ -62,26 +63,48 @@ export default function NavBar() {
       {/* When user has logged-in show log out btn */}
       {isAuth && (
         <div className={styles.authNavContents}>
-          <span className={styles.authUserIcon}>
-            <BiCart />
-          </span>
+          <NavLink className={styles.navLinkHome} to="/home">
+            Home
+          </NavLink>
+
+          <NavLink className={styles.navLinkProducts} to="/products">
+            Products
+          </NavLink>
+
+          {/* Uer cart */}
+          <Link to="/cart">
+            <span className={styles.authUserIcon}>
+              <BiCart />
+            </span>
+          </Link>
+
           <span
+            onClick={handleUserPanel}
             className={`${styles.authUserIcon} ${styles.authUserFloatingBoxHovIcon}`}
           >
             <BiUser />
           </span>
 
-          <div className={styles.authUserFloatingBox}>
-            <span>
-              <BiUserPin />
-              <span className={styles.authUserData}>{user?.email}</span>
-            </span>
+          {/* user float box  */}
 
-            <span onClick={handleLogout} className={styles.logoutContainer}>
-              <BiLogOut />
-              <span className={styles.authUserData}>Logout</span>
-            </span>
-          </div>
+          {userBtnClicked && (
+            <div className={styles.authUserFloatingBox}>
+              <span>
+                <BiUserPin />
+                <span className={styles.authUserData}>{user?.email}</span>
+              </span>
+
+              <span className={styles.wishlist}>
+                <AiFillHeart />
+                Wishlist
+              </span>
+
+              <span onClick={handleLogout} className={styles.logoutContainer}>
+                <BiLogOut />
+                <span className={styles.authUserData}>Logout</span>
+              </span>
+            </div>
+          )}
         </div>
       )}
     </nav>
