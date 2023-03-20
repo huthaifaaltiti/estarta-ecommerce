@@ -39,6 +39,20 @@ function cartReducer(state = initialState, action) {
         cartItems: [...resCartItems],
       };
 
+    case CART_CONSTANTS.MIN_ITEM_FROM_CART:
+      const elementFoundMin = state.cartItems.find(
+        (cartItemMin) => action.payload.id === cartItemMin.id
+      );
+
+      if (elementFoundMin.quantity > 1) {
+        state.cartItems.pop();
+        return {
+          cartItems: [
+            ...state.cartItems,
+            { ...elementFoundMin, quantity: action.payload.quantity - 1 },
+          ],
+        };
+      }
     default:
       return state;
   }

@@ -14,3 +14,11 @@ export const RemoveProductFromCart = (cartItem) => (dispatch) => {
     payload: cartItem,
   });
 };
+
+export const MinProductFromCart = (cartItem) => (dispatch) => {
+  dispatch({
+    type: CART_CONSTANTS.MIN_ITEM_FROM_CART,
+    payload: cartItem,
+  });
+};
+
