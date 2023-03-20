@@ -7,3 +7,10 @@ export const AddProductToCart = (product) => (dispatch) => {
     payload: product,
   });
 };
+
+export const RemoveProductFromCart = (cartItem) => (dispatch) => {
+  dispatch({
+    type: CART_CONSTANTS.REMOVE_FROM_CART,
+    payload: cartItem,
+  });
+};

@@ -30,6 +30,15 @@ function cartReducer(state = initialState, action) {
         };
       }
 
+    case CART_CONSTANTS.REMOVE_FROM_CART:
+      const resCartItems = state.cartItems.filter(
+        (cartItem3) => cartItem3.id !== action.payload.id
+      );
+
+      return {
+        cartItems: [...resCartItems],
+      };
+
     default:
       return state;
   }

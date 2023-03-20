@@ -3,7 +3,7 @@ import React from "react";
 // redux
 import { useDispatch, useSelector } from "react-redux";
 // creator functions
-import { AddProductToCart } from "../../redux/cart/actions";
+import { AddProductToCart, RemoveProductFromCart } from "../../redux/cart/actions";
 
 // styles
 import styles from "./styles.module.css";
@@ -24,6 +24,12 @@ export default function Cart() {
 
   function handlePlusBtn(cartItem) {
     dispatch(AddProductToCart(cartItem));
+
+    
+  }
+
+  function handleDeleteBtn(cartItem) {
+    dispatch(RemoveProductFromCart(cartItem));
 
     console.log(cartItem);
   }
@@ -86,6 +92,8 @@ export default function Cart() {
                     <span>
                       <MdRemoveCircleOutline className={styles.cartItemInc} />
                     </span>
+
+                    <button onClick={() => handleDeleteBtn(cartItem)}>Dellete</button>
                   </div>
 
                   <div className={styles.cartItemRating}>
