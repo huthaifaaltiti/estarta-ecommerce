@@ -4,6 +4,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // action creator
 import { FetchProducts } from "../../redux/products/actions";
+// creator functions
+import { AddProductToCart } from "../../redux/cart/actions";
 
 // styles, icons
 import styles from "./styles.module.css";
@@ -16,19 +18,24 @@ import {
   AiOutlineHeart,
   AiFillHeart,
 } from "react-icons/ai";
+import { type } from "@testing-library/user-event/dist/type";
 
 export default function Products() {
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.productsReducer);
 
+  function handleAddToCart(product) {
+    dispatch(AddProductToCart(product));
+  }
+
   useEffect(() => {
-    dispatch(FetchProducts());
+    if (products) dispatch(FetchProducts());
   }, []);
 
   return (
     <div className={styles.pageBody}>
       {products?.map((product) => (
-        <div className={styles.productsItem}>
+        <div key={product?.id} className={styles.productsItem}>
           <header className={styles.itemHeader}>
             <div className={styles.itemId}>{product?.id}</div>
             <div className={styles.itemName}>
@@ -42,7 +49,12 @@ export default function Products() {
 
                   <AiFillHeart className={styles.itemNameFillHeartIcon} />
                 </span>
-                <BiCartAdd className={styles.itemNameAddCartIcon} />
+
+                {/* cart icon */}
+                <BiCartAdd
+                  onClick={() => handleAddToCart(product)}
+                  className={styles.itemNameAddCartIcon}
+                />
               </div>
             </div>
           </header>
@@ -64,11 +76,13 @@ export default function Products() {
             <div className={styles.itemRating}>
               <BsFillEmojiSmileFill className={styles.itemRateIcon} />
 
-              {new Array(product?.rating).fill(<AiFillStar />).map((star) => (
-                <span className={styles.ratingStar} key={product?.id}>
-                  {star}
-                </span>
-              ))}
+              {new Array(product?.rating)
+                .fill(<AiFillStar />)
+                .map((star, i) => (
+                  <span className={styles.ratingStar} key={i}>
+                    {star}
+                  </span>
+                ))}
             </div>
           </div>
         </div>
