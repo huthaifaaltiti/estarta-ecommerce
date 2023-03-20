@@ -1,12 +1,12 @@
 // react
 import React from "react";
-
+// component
 import BlueBtn from "../../components/BlueBtn/index";
+
+// styles, icons
+import styles from "./styles.module.css";
 import { BsFillMicFill, BsFillPeopleFill } from "react-icons/bs";
 import { BiMedal } from "react-icons/bi";
-
-// styles
-import styles from "./styles.module.css";
 
 export default function Home() {
   return (
@@ -60,7 +60,6 @@ export default function Home() {
         </div>
 
         {/* sector 3 */}
-
         <div className={styles.homePageRightSector}>
           <div className={styles.homePageRightSectorPicCont}>
             <span>
