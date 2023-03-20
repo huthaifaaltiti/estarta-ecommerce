@@ -18,11 +18,13 @@ function cartReducer(state = initialState, action) {
           cartItems: [...state.cartItems, { ...action.payload, quantity: 1 }],
         };
       } else {
-        state.cartItems.pop();
+        const arr2 = state.cartItems.filter(
+          (cartItem2) => action.payload.id !== cartItem2.id
+        );
 
         return {
           cartItems: [
-            ...state.cartItems,
+            ...arr2,
             { ...elementFound, quantity: elementFound.quantity + 1 },
           ],
         };
