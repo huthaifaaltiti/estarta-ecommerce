@@ -9,9 +9,24 @@ const initialState = {
 function cartReducer(state = initialState, action) {
   switch (action.type) {
     case CART_CONSTANTS.ADD_TO_CART:
-      return {
-        cartItems: [...state.cartItems, action.payload],
-      };
+      const elementFound = state.cartItems.find(
+        (cartItem) => action.payload.id === cartItem.id
+      );
+
+      if (!elementFound) {
+        return {
+          cartItems: [...state.cartItems, { ...action.payload, quantity: 1 }],
+        };
+      } else {
+        state.cartItems.pop();
+
+        return {
+          cartItems: [
+            ...state.cartItems,
+            { ...elementFound, quantity: elementFound.quantity + 1 },
+          ],
+        };
+      }
 
     default:
       return state;
