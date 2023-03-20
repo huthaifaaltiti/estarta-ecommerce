@@ -53,6 +53,15 @@ function cartReducer(state = initialState, action) {
           ],
         };
       }
+      if (elementFoundMin.quantity === 1) {
+        const resCartItems3 = state.cartItems.filter(
+          (cartItem4) => cartItem4.id !== action.payload.id
+        );
+
+        return {
+          cartItems: [...resCartItems3],
+        };
+      }
     default:
       return state;
   }
