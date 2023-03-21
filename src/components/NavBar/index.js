@@ -15,6 +15,7 @@ import { AiFillHeart } from "react-icons/ai";
 export default function NavBar() {
   const { isAuth, user } = useSelector((state) => state.authReducer);
   const { cartItems } = useSelector((state) => state.cartReducer);
+  const { wishlistItems } = useSelector((state) => state.WishlistReducer);
 
   const locationOfUser = useLocation();
   const [showLoginBtn, setShowLoginBtn] = useState(true);
@@ -100,8 +101,10 @@ export default function NavBar() {
               </span>
 
               <span className={styles.wishlist}>
-                <AiFillHeart />
-                Wishlist
+                <Link to="/wishlist">
+                  <AiFillHeart />
+                  Wishlist  ({wishlistItems?.length})
+                </Link>
               </span>
 
               <span onClick={handleLogout} className={styles.logoutContainer}>
