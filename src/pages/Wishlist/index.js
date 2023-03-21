@@ -1,5 +1,7 @@
 // react
 import React from "react";
+// react-router-dom
+import { Link } from "react-router-dom";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 // creator function
@@ -48,7 +50,7 @@ export default function Wishlist() {
 
         {wishlistItems?.length > 0 ? (
           wishlistItems.map((wishlistItem, i) => (
-            <div key={i} className={styles.wishlistItem}>
+            <div key={i} className={`${styles.wishlistItem} ${styles.slideIn}`}>
               <header className={styles.wishlistItemHeader}>
                 <h3 className={styles.wishlistItemName}>
                   <FaSitemap className={styles.wishlistItemNameIcon} />
@@ -92,7 +94,12 @@ export default function Wishlist() {
           ))
         ) : (
           <div className={styles.noItemsMessage}>
-            <p>no items in wishlist.</p>
+            <p>
+              No items in your wishlist!
+              <Link to="/products">
+                <span> Go back to products page.</span>
+              </Link>
+            </p>
           </div>
         )}
       </div>

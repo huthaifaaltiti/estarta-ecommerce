@@ -3,20 +3,18 @@
 .wishlistPage {
   padding: 2rem 1rem;
   border-radius: 0.5rem;
-
-  /* background-color: var(--color-gry-l-2); */
 }
 
 .wishlistItemsCont {
   width: 100%;
 
   padding: 1rem;
-  padding-top: 3rem;
+  padding-top: 5rem;
 
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  place-items: center;
   gap: 2rem;
-  flex-wrap: wrap;
 
   position: relative;
 }
@@ -25,11 +23,12 @@
   padding: 0.6rem 1.8rem;
   position: absolute;
   top: -1rem;
-  right: 0rem;
+  right: 50%;
+  transform: translateX(50%);
 
   font-size: 1rem;
   font-weight: 600;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
 
   background-color: var(--color-scd);
@@ -172,7 +171,7 @@
 
 /* ***** */
 
-.noItemsMessage{
+.noItemsMessage {
   width: 100%;
 
   display: block;
@@ -187,3 +186,44 @@
 
   color: var(--color-scd);
 }
+
+.noItemsMessage p span {
+  cursor: pointer;
+
+  text-decoration: underline;
+}
+
+/* Pages items common  animation */
+
+.slideIn {
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* *********************************************** */
+/* Sector: CSS media quires for wishlist page */
+
+/* 840/16 = 52.5 */
+@media (max-width: 52em) {
+  .noItemsMessage p {
+    font-size: 1.4rem;
+  }
+}
+
+/* 528/16 = 33 */
+@media (max-width: 33em) {
+  .noItemsMessage p {
+    font-size: 1.2rem;
+  }
+}
+
+
+

@@ -76,6 +76,8 @@
 }
 
 .noCartItemsCont p span {
+  cursor: pointer;
+
   text-decoration: underline;
 }
 
@@ -95,8 +97,6 @@
   justify-content: center;
 
   border-top: 1px solid var(--color-gry-d-1);
-
-  /* background-color: blue; */
 }
 
 .checkoutPriceContSubMain {
@@ -170,7 +170,6 @@
 
   color: var(--color-scd);
 }
-
 
 /* Pages items common  animation */
 
