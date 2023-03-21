@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FetchProducts } from "../../redux/products/actions";
 // creator functions
 import { AddProductToCart } from "../../redux/cart/actions";
+import { AddProductToWishlist } from "../../redux/wishlist/actions";
 
 // styles, icons
 import styles from "./styles.module.css";
@@ -28,6 +29,10 @@ export default function Products() {
     dispatch(AddProductToCart(product));
   }
 
+  function handleAddToWishlist(product) {
+    dispatch(AddProductToWishlist(product));
+  }
+
   useEffect(() => {
     if (products) dispatch(FetchProducts());
   }, []);
@@ -44,7 +49,7 @@ export default function Products() {
               </div>
 
               <div className={styles.itemReact}>
-                <span>
+                <span onClick={() => handleAddToWishlist(product)}>
                   <AiOutlineHeart className={styles.itemNameHeartIcon} />
 
                   <AiFillHeart className={styles.itemNameFillHeartIcon} />

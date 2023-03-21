@@ -1,3 +1,6 @@
+// wishlist constants
+import * as WISHLIST_CONSTANTS from "./constants";
+
 // Wishlist reducer
 const initialState = {
   wishlistItems: [],
@@ -5,8 +8,10 @@ const initialState = {
 
 function WishlistReducer(state = initialState, action) {
   switch (action.type) {
-    case value:
-      break;
+    case WISHLIST_CONSTANTS.WISHLIST_ADD_ITEM:
+      return {
+        wishlistItems: [...state.wishlistItems, action.payload],
+      };
 
     default:
       return state;

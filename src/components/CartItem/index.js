@@ -37,7 +37,7 @@ export default function CartItem({ cartItem }) {
     dispatch(MinProductFromCart(cartItem));
   }
   return (
-    <div  className={styles.cartItem}>
+    <div className={styles.cartItem}>
       <header className={styles.cartItemHeader}>
         {/* <div className={styles.cartItemId}>{cartItem?.id}</div> */}
         <div className={styles.cartItemName}>
@@ -47,7 +47,10 @@ export default function CartItem({ cartItem }) {
           </div>
 
           <div className={styles.cartItemReact}>
-          <AiOutlineDelete className={styles.deleteCartItemIcon} onClick={() => handleDeleteBtn(cartItem)}/>
+            <AiOutlineDelete
+              className={styles.deleteCartItemIcon}
+              onClick={() => handleDeleteBtn(cartItem)}
+            />
             <span>
               <AiOutlineHeart className={styles.cartItemNameHeartIcon} />
 
@@ -87,9 +90,6 @@ export default function CartItem({ cartItem }) {
             />
           </span>
         </div>
-
-
-       
 
         <div className={styles.cartItemRating}>
           <BsFillEmojiSmileFill className={styles.cartItemRateIcon} />

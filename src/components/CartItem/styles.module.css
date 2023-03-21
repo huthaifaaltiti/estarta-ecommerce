@@ -2,7 +2,7 @@
 
 .cartItem {
   width: 25rem;
-  padding: 1rem;
+  padding: .5rem;
 
   display: flex;
   flex-direction: column;
