@@ -67,6 +67,24 @@ nav .divBtn button:focus {
   cursor: pointer;
 
   transition: all 0.1s linear;
+
+  position: relative;
+}
+
+.userCartCounter{
+  display: inline-block;
+
+  width: 1rem;
+  height: 2rem;
+
+  font-size: 1rem;
+
+  /* background-color: var(--color-gry); */
+
+
+  position: absolute;
+  top: -6px;
+  right: 1px;
 }
 
 .authUserIcon:hover {

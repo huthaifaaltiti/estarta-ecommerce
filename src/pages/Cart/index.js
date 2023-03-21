@@ -2,12 +2,11 @@
 import React from "react";
 // redux
 import { useSelector } from "react-redux";
+// component
+import CartItem from "../../components/CartItem";
 
 // styles
 import styles from "./styles.module.css";
-
-
-import CartItem from "../../components/CartItem";
 
 export default function Cart() {
   const { cartItems } = useSelector((state) => state.cartReducer);

@@ -14,6 +14,7 @@ import { AiFillHeart } from "react-icons/ai";
 
 export default function NavBar() {
   const { isAuth, user } = useSelector((state) => state.authReducer);
+  const { cartItems } = useSelector((state) => state.cartReducer);
 
   const locationOfUser = useLocation();
   const [showLoginBtn, setShowLoginBtn] = useState(true);
@@ -75,6 +76,10 @@ export default function NavBar() {
           <Link to="/cart">
             <span className={styles.authUserIcon}>
               <BiCart />
+
+              <span className={styles.userCartCounter}>
+                {cartItems?.length || 0}
+              </span>
             </span>
           </Link>
 
