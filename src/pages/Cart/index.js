@@ -1,15 +1,20 @@
 // react
 import React from "react";
 // redux
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 // component
 import CartItem from "../../components/CartItem";
+// creator function
+import { DeleteAllCartItems } from "../../redux/cart/actions";
 
-// styles
+// styles, icons
 import styles from "./styles.module.css";
+import { AiOutlineDelete } from "react-icons/ai";
 
 export default function Cart() {
   const { cartItems } = useSelector((state) => state.cartReducer);
+  const dispatch = useDispatch();
+
   const totalPrices = cartItems.reduce(
     (total, current) => total + current.price * current.quantity,
     0
@@ -18,6 +23,19 @@ export default function Cart() {
   return (
     <div className={styles.cartPage}>
       <div className={styles.cartItemsCont}>
+        {/* Delete all-btn */}
+        {cartItems?.length > 1 && (
+          <button
+            className={styles.deleteAllCartItemsBtn}
+            onClick={() => {
+              dispatch(DeleteAllCartItems());
+            }}
+          >
+            Delete All
+            <AiOutlineDelete className={styles.deleteAllCartItemsIcon} />
+          </button>
+        )}
+
         {cartItems?.length > 0 ? (
           cartItems?.map((cartItem, i) => (
             <CartItem key={i} cartItem={cartItem} />
