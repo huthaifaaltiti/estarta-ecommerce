@@ -39,6 +39,7 @@ export default function CartItem({ cartItem }) {
   }
 
   return (
+
     <div  className={`${styles.cartItem} ${styles.slideIn}`}>
       <header className={styles.cartItemHeader}>
         {/* <div className={styles.cartItemId}>{cartItem?.id}</div> */}
@@ -49,7 +50,10 @@ export default function CartItem({ cartItem }) {
           </div>
 
           <div className={styles.cartItemReact}>
-          <AiOutlineDelete className={styles.deleteCartItemIcon} onClick={() => handleDeleteBtn(cartItem)}/>
+            <AiOutlineDelete
+              className={styles.deleteCartItemIcon}
+              onClick={() => handleDeleteBtn(cartItem)}
+            />
             <span>
               <AiOutlineHeart className={styles.cartItemNameHeartIcon} />
 
@@ -89,9 +93,6 @@ export default function CartItem({ cartItem }) {
             />
           </span>
         </div>
-
-
-       
 
         <div className={styles.cartItemRating}>
           <BsFillEmojiSmileFill className={styles.cartItemRateIcon} />
