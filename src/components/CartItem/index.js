@@ -10,6 +10,7 @@ import {
   MinProductFromCart,
 } from "../../redux/cart/actions";
 
+
 // styles, icons
 import styles from "./styles.module.css";
 import { FaSitemap } from "react-icons/fa";
@@ -36,8 +37,10 @@ export default function CartItem({ cartItem }) {
   function handleMinBtn(cartItem) {
     dispatch(MinProductFromCart(cartItem));
   }
+
   return (
-    <div className={styles.cartItem}>
+
+    <div  className={`${styles.cartItem} ${styles.slideIn}`}>
       <header className={styles.cartItemHeader}>
         {/* <div className={styles.cartItemId}>{cartItem?.id}</div> */}
         <div className={styles.cartItemName}>

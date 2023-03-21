@@ -1,26 +1,18 @@
 /* Sector: Main cart page classes: */
-
 .cartPage {
   padding: 2rem 1rem;
   border-radius: 0.5rem;
-
-  /* background-color: var(--color-gry-l-2); */
 }
 
 .cartItemsCont {
   width: 100%;
   height: 100%;
 
-  padding-top: 3rem;
+  padding-top: 5rem;
 
-  /* display: grid;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
   place-items: center;
-  gap: 1rem; */
-
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
   gap: 2rem;
 
   position: relative;
@@ -30,7 +22,8 @@
   padding: 0.6rem 1.8rem;
   position: absolute;
   top: -1rem;
-  right: 0rem;
+  left: 50%;
+  transform: translateX(-50%);
 
   font-size: 1rem;
   font-weight: 600;
@@ -73,7 +66,7 @@
 }
 
 .noCartItemsCont p {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 600;
   text-transform: uppercase;
 
@@ -82,17 +75,31 @@
   color: var(--color-scd);
 }
 
+.noCartItemsCont p span {
+  text-decoration: underline;
+}
+
+.noCartItemsCont p span:hover {
+  cursor: pointer;
+}
+
 /* ******** */
 
 .checkoutPriceContMain {
   width: 100%;
 
-  /* border-top: 1px solid var(--color-scd); */
+  margin-top: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-top: 1px solid var(--color-gry-d-1);
+
+  /* background-color: blue; */
 }
 
 .checkoutPriceContSubMain {
-  width: 20%;
-
   padding: 2rem 0;
 
   margin: 0 auto;
@@ -104,13 +111,13 @@
   align-items: center;
   justify-content: center;
 
-  border-top: 1px solid var(--color-gry-d-2);
+  border-top: 1px solid var(--color-gry-d-1);
 }
 
 .checkoutPriceContSubMain div p {
   font-size: 1.4rem;
   font-weight: 500;
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
   color: var(--color-blk);
 }
 
@@ -129,6 +136,7 @@
   width: 100%;
 
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 
   padding: 1rem;
 
@@ -140,6 +148,11 @@
 
   cursor: pointer;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
   transition: all 0.1s linear;
 }
 
@@ -147,9 +160,46 @@
   background-color: var(--color-scd-d-2);
 }
 
+.checkoutBtnIcon {
+  color: var(--color-scd-d-3);
+}
+
 .checkoutPriceContSubMain div p span:last-child {
   font-size: 1.8rem;
   font-weight: 600;
 
   color: var(--color-scd);
+}
+
+
+/* Pages items common  animation */
+
+.slideIn {
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* *********************************************** */
+/* Sector: CSS media quires for cart page */
+
+/* 640/16 = 31.25 */
+@media (max-width: 31em) {
+  .noCartItemsCont p {
+    font-size: 1rem;
+  }
+}
+
+/* 500/16 = 40 */
+@media (max-width: 40em) {
+  .noCartItemsCont p {
+    font-size: 1rem;
+  }
 }

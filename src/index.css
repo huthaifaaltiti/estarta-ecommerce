@@ -10,7 +10,6 @@
 html {
   /* 10px / 16px = 0.625 = 62.5% */
   /* percentage of user's browser font-size settings */
-
   font-size: 62.5%;
 }
 
@@ -22,6 +21,7 @@ body {
   background-color: var(--color-gry);
   color: var(--color-txt);
 }
+
 
 :root {
   /* Colors: */
@@ -92,3 +92,6 @@ a {
 a.active {
   color: var(--color-scd);
 }
+
+
+
