@@ -22,3 +22,8 @@ export const MinProductFromCart = (cartItem) => (dispatch) => {
   });
 };
 
+export const DeleteAllCartItems = () => (dispatch) => {
+  dispatch({
+    type: CART_CONSTANTS.CART_DELETE_ALL,
+  });
+};

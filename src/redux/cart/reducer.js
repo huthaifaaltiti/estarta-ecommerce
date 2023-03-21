@@ -62,6 +62,13 @@ function cartReducer(state = initialState, action) {
           cartItems: [...resCartItems3],
         };
       }
+
+    case CART_CONSTANTS.CART_DELETE_ALL:
+      return {
+        cartItems: [],
+      };
+
+      
     default:
       return state;
   }
