@@ -1,3 +1,4 @@
+// react
 import React from "react";
 // redux
 import { useDispatch } from "react-redux";
@@ -9,17 +10,17 @@ import {
   MinProductFromCart,
 } from "../../redux/cart/actions";
 
+// styles, icons
+import styles from "./styles.module.css";
+import { FaSitemap } from "react-icons/fa";
+import { AiOutlineDelete } from "react-icons/ai";
+import { BsFillEmojiSmileFill } from "react-icons/bs";
+import { MdAddCircleOutline, MdRemoveCircleOutline } from "react-icons/md";
 import {
   AiFillDollarCircle,
   AiOutlineHeart,
   AiFillHeart,
 } from "react-icons/ai";
-
-// styles
-import styles from "./styles.module.css";
-import { FaSitemap } from "react-icons/fa";
-import { BsFillEmojiSmileFill } from "react-icons/bs";
-import { MdAddCircleOutline, MdRemoveCircleOutline } from "react-icons/md";
 
 export default function CartItem({ cartItem }) {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ export default function CartItem({ cartItem }) {
           </div>
 
           <div className={styles.cartItemReact}>
+          <AiOutlineDelete className={styles.deleteCartItemIcon} onClick={() => handleDeleteBtn(cartItem)}/>
             <span>
               <AiOutlineHeart className={styles.cartItemNameHeartIcon} />
 
@@ -86,7 +88,8 @@ export default function CartItem({ cartItem }) {
           </span>
         </div>
 
-        <button onClick={() => handleDeleteBtn(cartItem)}>Dellete</button>
+
+       
 
         <div className={styles.cartItemRating}>
           <BsFillEmojiSmileFill className={styles.cartItemRateIcon} />
