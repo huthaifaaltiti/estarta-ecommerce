@@ -71,7 +71,6 @@
   gap: 2rem;
 }
 
-
 .itemReact {
   display: flex;
   align-items: center;
@@ -175,6 +174,24 @@
   font-weight: bold;
 }
 
+
+/* Pages common items animation */
+
+.slideIn {
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ********************************************************** */
 /* Sector: Media quires */
 
 /* 1225px / 16px = 76.5625 */

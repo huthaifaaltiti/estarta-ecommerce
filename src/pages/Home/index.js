@@ -11,7 +11,7 @@ import styles from "./styles.module.css";
 export default function Home() {
   return (
     <div className={styles.homePage}>
-      <div className={styles.HomePageLeft}>
+      <div className={`${styles.HomePageLeft} ${styles.slideIn}`}>
         <h2>We are helping to grow your business.</h2>
 
         <p>
@@ -22,7 +22,7 @@ export default function Home() {
 
         <BlueBtn className={styles.blueBtnWel} text="Learn more about us" />
       </div>
-      <div className={styles.HomePageRight}>
+      <div className={`${styles.HomePageRight} ${styles.slideIn}`}>
         {/* sector 1 */}
         <div className={styles.homePageRightSector}>
           <div className={styles.homePageRightSectorPicCont}>

@@ -10,6 +10,8 @@ import { DeleteAllCartItems } from "../../redux/cart/actions";
 // styles, icons
 import styles from "./styles.module.css";
 import { AiOutlineDelete } from "react-icons/ai";
+import { MdShoppingCartCheckout } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   const { cartItems } = useSelector((state) => state.cartReducer);
@@ -42,13 +44,18 @@ export default function Cart() {
           ))
         ) : (
           <div className={styles.noCartItemsCont}>
-            <p>No items in your cart!</p>
+            <p>
+              No items in your cart!
+              <Link to="/products">
+                <span> Go back to products page.</span>
+              </Link>
+            </p>
           </div>
         )}
       </div>
 
       {cartItems?.length > 0 && (
-        <div className={styles.checkoutPriceContMain}>
+        <div className={`${styles.checkoutPriceContMain} ${styles.slideIn}`}>
           <div className={styles.checkoutPriceContSubMain}>
             <div>
               <p>
@@ -58,7 +65,10 @@ export default function Cart() {
             </div>
 
             <div className={styles.checkoutBtnCont}>
-              <button>Checkout</button>
+              <button>
+                Checkout
+                <MdShoppingCartCheckout className={styles.checkoutBtnIcon} />
+              </button>
             </div>
           </div>
         </div>

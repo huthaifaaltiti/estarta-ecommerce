@@ -35,7 +35,10 @@ export default function Products() {
   return (
     <div className={styles.pageBody}>
       {products?.map((product) => (
-        <div key={product?.id} className={styles.productsItem}>
+        <div
+          key={product?.id}
+          className={`${styles.slideIn} ${styles.productsItem}`}
+        >
           <header className={styles.itemHeader}>
             <div className={styles.itemId}>{product?.id}</div>
             <div className={styles.itemName}>

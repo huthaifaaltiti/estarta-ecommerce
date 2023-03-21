@@ -117,6 +117,23 @@
   color: var(--color-scd);
 }
 
+/* Pages common items animation */
+
+.slideIn {
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ********************************************** */
 /* Sector: Media quires */
 
 /* 1200px / 16px = 75 */
