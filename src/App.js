@@ -24,10 +24,11 @@ import "./App.css";
 
 // pages
 const Welcome = lazy(() => import("./pages/Welcome/index"));
-const Home = lazy(( ) => import("./pages/Home/index.js"))
+const Home = lazy(() => import("./pages/Home/index.js"));
 const Login = lazy(() => import("./pages/Login/index"));
-const Products = lazy(() => import("./pages/Products/index.js"))
+const Products = lazy(() => import("./pages/Products/index.js"));
 const Cart = lazy(() => import("./pages/Cart/index"));
+const Wishlist = lazy(() => import("./pages/Wishlist/index.js"));
 const NotFound = lazy(() => import("./pages/NotFound/index"));
 
 function ProtectedRoute({ element }) {
@@ -72,6 +73,7 @@ function App() {
             element={<ProtectedRoute element={<Products />} />}
           />
           <Route path="/cart" element={<ProtectedRoute element={<Cart />} />} />
+          <Route path="/wishlist" element={<ProtectedRoute element={<Wishlist />} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

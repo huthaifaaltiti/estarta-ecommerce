@@ -100,8 +100,10 @@ export default function NavBar() {
               </span>
 
               <span className={styles.wishlist}>
-                <AiFillHeart />
-                Wishlist
+                <Link to="/wishlist">
+                  <AiFillHeart />
+                  Wishlist
+                </Link>
               </span>
 
               <span onClick={handleLogout} className={styles.logoutContainer}>
