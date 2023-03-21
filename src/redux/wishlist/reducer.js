@@ -39,6 +39,8 @@ function WishlistReducer(state = initialState, action) {
         wishlistItems: filterItems,
       };
 
+    case WISHLIST_CONSTANTS.WISHLIST_DELETE_ALL:
+      return { wishlistItems: [] };
     default:
       return state;
   }

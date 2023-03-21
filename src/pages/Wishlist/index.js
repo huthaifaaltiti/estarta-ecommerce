@@ -3,7 +3,10 @@ import React from "react";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 // creator function
-import { DeleteWishlistItem } from "../../redux/wishlist/actions";
+import {
+  DeleteWishlistItem,
+  DeleteAllWishlistItems,
+} from "../../redux/wishlist/actions";
 import { AddProductToCart } from "../../redux/cart/actions";
 
 // styles, icons
@@ -30,6 +33,19 @@ export default function Wishlist() {
   return (
     <div className={styles.wishlistPage}>
       <div className={styles.wishlistItemsCont}>
+        {/* Delete all btn */}
+        {wishlistItems?.length > 1 && (
+          <button
+            className={styles.deleteAllWishlistItemsBtn}
+            onClick={() => {
+              dispatch(DeleteAllWishlistItems());
+            }}
+          >
+            Delete All
+            <AiOutlineDelete className={styles.deleteAllWishlistItemsIcon} />
+          </button>
+        )}
+
         {wishlistItems?.length > 0 ? (
           wishlistItems.map((wishlistItem, i) => (
             <div key={i} className={styles.wishlistItem}>
@@ -75,7 +91,7 @@ export default function Wishlist() {
             </div>
           ))
         ) : (
-          <div>
+          <div className={styles.noItemsMessage}>
             <p>no items in wishlist.</p>
           </div>
         )}
