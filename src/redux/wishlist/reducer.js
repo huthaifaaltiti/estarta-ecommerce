@@ -1,12 +1,17 @@
 // wishlist constants
 import * as WISHLIST_CONSTANTS from "./constants";
 
+// redux
+// import { useSelector } from "react-redux";
+
 // Wishlist reducer
 const initialState = {
   wishlistItems: [],
 };
 
 function WishlistReducer(state = initialState, action) {
+  // const { cartItems } = useSelector((state) => state.cartReducer);
+
   switch (action.type) {
     case WISHLIST_CONSTANTS.WISHLIST_ADD_ITEM:
       const isItemFound = state.wishlistItems.find(
@@ -22,6 +27,17 @@ function WishlistReducer(state = initialState, action) {
           wishlistItems: [...state.wishlistItems, action.payload],
         };
       }
+
+    case WISHLIST_CONSTANTS.WISHLIST_REMOVE_ITEM:
+      const filterItems = state.wishlistItems.filter(
+        (wishlistItem) => action.payload.id !== wishlistItem.id
+      );
+
+      console.log(filterItems);
+
+      return {
+        wishlistItems: filterItems,
+      };
 
     default:
       return state;
