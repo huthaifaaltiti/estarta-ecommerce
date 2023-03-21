@@ -9,9 +9,19 @@ const initialState = {
 function WishlistReducer(state = initialState, action) {
   switch (action.type) {
     case WISHLIST_CONSTANTS.WISHLIST_ADD_ITEM:
-      return {
-        wishlistItems: [...state.wishlistItems, action.payload],
-      };
+      const isItemFound = state.wishlistItems.find(
+        (wishlistItem) => wishlistItem.id === action.payload.id
+      );
+
+      if (isItemFound) {
+        return {
+          wishlistItems: [...state.wishlistItems],
+        };
+      } else {
+        return {
+          wishlistItems: [...state.wishlistItems, action.payload],
+        };
+      }
 
     default:
       return state;
