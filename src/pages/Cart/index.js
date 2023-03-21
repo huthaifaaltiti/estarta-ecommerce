@@ -10,6 +10,10 @@ import styles from "./styles.module.css";
 
 export default function Cart() {
   const { cartItems } = useSelector((state) => state.cartReducer);
+  const totalPrices = cartItems.reduce(
+    (total, current) => total + current.price * current.quantity,
+    0
+  );
 
   return (
     <div className={styles.cartPage}>
@@ -24,6 +28,23 @@ export default function Cart() {
           </div>
         )}
       </div>
+
+      {cartItems?.length > 0 && (
+        <div className={styles.checkoutPriceContMain}>
+          <div className={styles.checkoutPriceContSubMain}>
+            <div>
+              <p>
+                Total price: <span>{totalPrices}</span>
+                <span> $</span>
+              </p>
+            </div>
+
+            <div className={styles.checkoutBtnCont}>
+              <button>Checkout</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

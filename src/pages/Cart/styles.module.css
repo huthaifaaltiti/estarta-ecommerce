@@ -4,7 +4,7 @@
   padding: 2rem 1rem;
   border-radius: 0.5rem;
 
-  background-color: var(--color-gry-l-2);
+  /* background-color: var(--color-gry-l-2); */
 }
 
 .cartItemsCont {
@@ -26,7 +26,7 @@
 
 .noCartItemsCont {
   width: 100%;
-  height: 50rem;
+  /* height: 20rem; */
 
   padding: 4rem;
 }
@@ -37,6 +37,78 @@
   text-transform: uppercase;
 
   text-align: center;
+
+  color: var(--color-scd);
+}
+
+/* ******** */
+
+.checkoutPriceContMain {
+  width: 100%;
+
+  /* border-top: 1px solid var(--color-scd); */
+}
+
+.checkoutPriceContSubMain {
+  width: 20%;
+
+  padding: 2rem 0;
+
+  margin: 0 auto;
+}
+
+.checkoutPriceContSubMain div {
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-top: 1px solid var(--color-gry-d-2);
+}
+
+.checkoutPriceContSubMain div p {
+  font-size: 1.4rem;
+  font-weight: 500;
+  /* text-transform: uppercase; */
+  color: var(--color-blk);
+}
+
+.checkoutPriceContSubMain div p span:first-child {
+  margin-left: 6rem;
+
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.checkoutBtnCont {
+  padding: 1rem 0;
+}
+
+.checkoutBtnCont button {
+  width: 100%;
+
+  text-transform: uppercase;
+
+  padding: 1rem;
+
+  border: none;
+  outline: none;
+
+  background-color: var(--color-scd);
+  color: var(--color-wht);
+
+  cursor: pointer;
+
+  transition: all .1s linear;
+}
+
+.checkoutBtnCont button:hover {
+  background-color: var(--color-scd-d-2);
+}
+
+.checkoutPriceContSubMain div p span:last-child {
+  font-size: 1.8rem;
+  font-weight: 600;
 
   color: var(--color-scd);
 }
