@@ -33,14 +33,14 @@ export default function Welcome() {
     <>
       <div className={styles.homePage}>
         <h1
-          className={`${currentHeaderIndex === 2 ? styles.h1Main : styles.h1}`}
+          className={`${currentHeaderIndex === 2 ? styles.h1Main : styles.h1} ${styles.slideIn}`}
         >
           {headersHome[currentHeaderIndex]}
         </h1>
 
         {/* hide BlueBtn if logged-in */}
         {!isAuth && (
-          <h2 className={styles.h2}>
+          <h2 className={`${styles.h2} ${styles.slideIn}`}>
             <Link to="/login">
               <BlueBtn className={styles.blueBtnWel} text="Login to continue" />
             </Link>

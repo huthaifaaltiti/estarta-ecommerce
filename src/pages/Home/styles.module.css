@@ -7,8 +7,6 @@
   align-items: center;
 
   margin: 1rem 0;
-
-  /* background-color: red; */
 }
 
 .HomePageLeft {
@@ -131,7 +129,6 @@
     transform: translateY(0);
   }
 }
-
 
 /* ********************************************** */
 /* Sector: Media quires */

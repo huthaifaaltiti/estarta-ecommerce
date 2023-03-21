@@ -43,6 +43,20 @@
   transform: translate(-50%, 0);
 }
 
+/* Pages items common  animation */
+.slideIn {
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Sector: Media queries */
 
 /* Note: rem and em do not depend on html font-size in media queries! Instead, 1rem = 1em = 16px  */

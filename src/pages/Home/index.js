@@ -1,14 +1,20 @@
 // react
 import React from "react";
-
+// redux
+import { useSelector } from "react-redux";
+// components
 import BlueBtn from "../../components/BlueBtn/index";
+import Spinner from "../../components/Spinner/index";
+
+// styles, icons
+import styles from "./styles.module.css";
 import { BsFillMicFill, BsFillPeopleFill } from "react-icons/bs";
 import { BiMedal } from "react-icons/bi";
 
-// styles
-import styles from "./styles.module.css";
-
 export default function Home() {
+  const { loading } = useSelector((state) => state.authReducer);
+
+  if (loading) return <Spinner />;
   return (
     <div className={styles.homePage}>
       <div className={`${styles.HomePageLeft} ${styles.slideIn}`}>

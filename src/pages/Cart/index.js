@@ -2,8 +2,9 @@
 import React from "react";
 // redux
 import { useSelector, useDispatch } from "react-redux";
-// component
+// components
 import CartItem from "../../components/CartItem";
+import Spinner from "../../components/Spinner/index";
 // creator function
 import { DeleteAllCartItems } from "../../redux/cart/actions";
 
@@ -15,6 +16,7 @@ import { Link } from "react-router-dom";
 
 export default function Cart() {
   const { cartItems } = useSelector((state) => state.cartReducer);
+  const { loading } = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
 
   const totalPrices = cartItems.reduce(
@@ -22,6 +24,7 @@ export default function Cart() {
     0
   );
 
+  if (loading) return <Spinner />;
   return (
     <div className={styles.cartPage}>
       <div className={styles.cartItemsCont}>

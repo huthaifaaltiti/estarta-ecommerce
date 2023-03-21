@@ -71,7 +71,7 @@ nav .divBtn button:focus {
   position: relative;
 }
 
-.userCartCounter{
+.userCartCounter {
   display: inline-block;
 
   width: 1rem;
@@ -80,7 +80,6 @@ nav .divBtn button:focus {
   font-size: 1rem;
 
   /* background-color: var(--color-gry); */
-
 
   position: absolute;
   top: -6px;
@@ -209,9 +208,41 @@ nav .divBtn button:focus {
   visibility: visible;
 } */
 
-/* Sector: Media queries */
+/* *********************************************** */
+/* Sector: CSS media quires*/
 
-/* 500px / 16px = 31.25 */
-/* @media (max-width: 31em) {
-  
-} */
+/* 455/16 = 28.4375 */
+@media (max-width: 28em) {
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .navLinkProducts,
+  .navLinkHome {
+    font-size: 1.2rem;
+  }
+
+  .navLinkProducts {
+    margin-right: 0rem;
+  }
+}
+
+/* 390/16 = 24.375 */
+@media (max-width: 24em) {
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .navLinkProducts,
+  .navLinkHome {
+    font-size: 1.2rem;
+  }
+
+  .authNavContents {
+    gap: 0.8rem;
+  }
+
+  .navLinkProducts {
+    margin-right: 0rem;
+  }
+}
