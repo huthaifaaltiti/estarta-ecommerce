@@ -55,7 +55,7 @@ function App() {
       });
   }, [isAuth]);
 
-  // loading spinner
+  // loading
   if (loading) return <Spinner />;
 
   return (

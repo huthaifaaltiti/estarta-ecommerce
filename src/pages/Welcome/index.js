@@ -3,15 +3,16 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 // react-router-dom
 import { Link } from "react-router-dom";
-// component
+// components
 import BlueBtn from "../../components/BlueBtn/index";
+import Spinner from "../../components/Spinner";
 
 // styles
 import styles from "./styles.module.css";
 
 export default function Welcome() {
-  const { isAuth } = useSelector((state) => state.authReducer);
-  
+  const { loading, isAuth } = useSelector((state) => state.authReducer);
+
   // auto changed home headers
   const headersHome = [
     "We provide the world with professionalism.",
@@ -29,11 +30,16 @@ export default function Welcome() {
     return () => clearInterval(intervalId);
   }, []);
 
+  // loading
+  if (loading) return <Spinner />;
+
   return (
     <>
       <div className={styles.homePage}>
         <h1
-          className={`${currentHeaderIndex === 2 ? styles.h1Main : styles.h1} ${styles.slideIn}`}
+          className={`${currentHeaderIndex === 2 ? styles.h1Main : styles.h1} ${
+            styles.slideIn
+          }`}
         >
           {headersHome[currentHeaderIndex]}
         </h1>

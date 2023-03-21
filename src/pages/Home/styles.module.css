@@ -182,10 +182,40 @@
   }
 
   .HomePageLeft {
+    height: auto;
     width: 100%;
+
+    padding: 15rem 2rem;
+
+    gap: 3rem;
   }
 
   .HomePageRight {
     width: 100%;
+    height: auto;
+
+    padding:5rem 2rem;
+    gap: 5rem;
+  }
+}
+
+/* 414px / 16px = 25.875 */
+@media (max-width: 25em) {
+  .HomePageLeft {
+    height: auto;
+
+    padding: 10rem 2rem;
+
+    gap: 3rem;
+  }
+  .HomePageRight {
+    height: auto;
+
+    padding: 2rem;
+    gap: 5rem;
+  }
+
+  .homePageRightSector {
+    gap: 2rem;
   }
 }
