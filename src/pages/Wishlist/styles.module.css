@@ -4,18 +4,58 @@
   padding: 2rem 1rem;
   border-radius: 0.5rem;
 
-  background-color: var(--color-gry-l-2);
+  /* background-color: var(--color-gry-l-2); */
 }
 
 .wishlistItemsCont {
   width: 100%;
 
   padding: 1rem;
+  padding-top: 3rem;
 
   display: flex;
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
+
+  position: relative;
+}
+
+.deleteAllWishlistItemsBtn {
+  padding: 0.6rem 1.8rem;
+  position: absolute;
+  top: -1rem;
+  right: 0rem;
+
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+
+  background-color: var(--color-scd);
+  color: var(--color-wht);
+
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  cursor: pointer;
+
+  transition: all 0.2s linear;
+}
+
+.deleteAllWishlistItemsBtn:hover {
+  background-color: var(--color-scd-l-1);
+}
+
+.deleteAllWishlistItemsIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-scd-d-2);
 }
 
 .wishlistItem {
@@ -126,6 +166,24 @@
 
 .wishlistItemPrice span {
   font-weight: 500;
+
+  color: var(--color-scd);
+}
+
+/* ***** */
+
+.noItemsMessage{
+  width: 100%;
+
+  display: block;
+  text-align: center;
+}
+
+.noItemsMessage p {
+  font-size: 2rem;
+  font-weight: 500;
+
+  text-transform: uppercase;
 
   color: var(--color-scd);
 }

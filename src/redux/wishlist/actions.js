@@ -21,3 +21,9 @@ export const AddProductToCart = (wishlistItem) => (dispatch) => {
     payload: wishlistItem,
   });
 };
+
+export const DeleteAllWishlistItems = () => (dispatch) => {
+  dispatch({
+    type: WISHLIST_CONSTANTS.WISHLIST_DELETE_ALL,
+  });
+};
