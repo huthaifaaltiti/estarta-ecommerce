@@ -33,14 +33,11 @@ export default function Products() {
 
     // cart animation
     setClickedProduct(product);
-    // cart animation
-
-    dispatch(AddProductToCart(product));
-
-    // reset clicked product after 1 second
     setTimeout(() => {
       setClickedProduct(null);
     }, 1000);
+
+    dispatch(AddProductToCart(product));
   }
 
   function handleAddToWishlist(product) {
@@ -53,15 +50,13 @@ export default function Products() {
 
   return (
     <div className={styles.pageBody}>
-      {/* animated product after clicking*/}
+      {/* animated product after clicking addToCart icon*/}
       {clickedProduct && (
         <div className={styles.animatedProduct}>
-          {/* animated product name */}
           <div className={styles.animatedProductName}>
             {clickedProduct?.name}
           </div>
 
-          {/* animated product image */}
           <div className={styles.animatedProductImgCon}>
             <img src={clickedProduct?.image_link} alt={clickedProduct?.name} />
           </div>

@@ -111,8 +111,7 @@
 
 .wishlistItemNameIcon,
 .deleteWishlistItemIcon,
-.addToCartWishlistItemIcon
- {
+.addToCartWishlistItemIcon {
   width: 2rem;
   height: 2rem;
 
@@ -172,7 +171,7 @@
   color: var(--color-scd);
 }
 
-.wishlistItemRateIcon{
+.wishlistItemRateIcon {
   width: 1.5rem;
   height: 1.5rem;
 
@@ -218,6 +217,66 @@
   }
 }
 
+/* cart product animation after clicking addToCart icon*/
+.animatedProduct {
+  width: 8%;
+  height: 5rem;
+
+  position: fixed;
+  top: 1rem;
+  left: 22rem;
+  z-index: 10000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  animation: addToCartAnimation 1s ease-in-out;
+}
+
+.animatedProductName {
+  width: 100%;
+  height: auto;
+
+  font-size: 1rem;
+  text-transform: uppercase;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.animatedProductImgCon {
+  width: 100%;
+  height: 80%;
+
+  border-radius: 0.2rem;
+}
+
+.animatedProductImgCon img {
+  width: 100%;
+  height: 100%;
+
+  border-radius: inherit;
+}
+
+@keyframes addToCartAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10rem, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(60rem, 0);
+    opacity: 0;
+  }
+}
+
 /* *********************************************** */
 /* Sector: CSS media quires for wishlist page */
 
@@ -234,6 +293,3 @@
     font-size: 1.2rem;
   }
 }
-
-
-

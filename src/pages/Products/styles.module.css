@@ -175,7 +175,6 @@
 }
 
 /* Pages common items animation */
-
 .slideIn {
   opacity: 0;
   transform: translateY(-50px);
@@ -189,7 +188,7 @@
   }
 }
 
-/* cart product animation */
+/* cart product animation after clicking addToCart icon*/
 .animatedProduct {
   width: 8%;
   height: 5rem;
@@ -197,8 +196,7 @@
   position: fixed;
   top: 1rem;
   left: 22rem;
-  z-index: 100;
-
+  z-index: 10000;
 
   display: flex;
   justify-content: center;
@@ -207,8 +205,6 @@
   gap: 0.5rem;
 
   animation: addToCartAnimation 1s ease-in-out;
-
-
 }
 
 .animatedProductName {
@@ -224,14 +220,14 @@
   gap: 0.5rem;
 }
 
-.animatedProductImgCon{
+.animatedProductImgCon {
   width: 100%;
   height: 80%;
 
   border-radius: 0.2rem;
 }
 
-.animatedProductImgCon img{
+.animatedProductImgCon img {
   width: 100%;
   height: 100%;
 
@@ -252,9 +248,7 @@
   }
 }
 
-
-
-/* ******************************************* */
+/* *********************************************** */
 /* Sector: Media quires */
 
 /* 1225px / 16px = 76.5625 */

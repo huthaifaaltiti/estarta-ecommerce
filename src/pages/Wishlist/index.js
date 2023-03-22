@@ -1,5 +1,5 @@
 // react
-import React from "react";
+import React, { useEffect, useState } from "react";
 // react-router-dom
 import { Link } from "react-router-dom";
 // redux
@@ -19,9 +19,10 @@ import { BsFillCartPlusFill, BsFillEmojiSmileFill } from "react-icons/bs";
 
 export default function Wishlist() {
   const { wishlistItems } = useSelector((state) => state.WishlistReducer);
-  console.log({ wishlistItems });
-
   const dispatch = useDispatch();
+
+  // cart animation
+  const [clickedProduct, setClickedProduct] = useState(null);
 
   function handleDeleteWishlistItem(wishlistItem) {
     dispatch(DeleteWishlistItem(wishlistItem));
@@ -30,10 +31,29 @@ export default function Wishlist() {
   function handleAddToCartWishlistItem(product) {
     dispatch(AddProductToCart(product));
     dispatch(DeleteWishlistItem(product));
+
+    // cart animation
+    setClickedProduct(product);
+    setTimeout(() => {
+      setClickedProduct(null);
+    }, 1000);
   }
 
   return (
     <div className={styles.wishlistPage}>
+      {/* animated product after clicking addToCart icon*/}
+      {clickedProduct && (
+        <div className={styles.animatedProduct}>
+          <div className={styles.animatedProductName}>
+            {clickedProduct?.name}
+          </div>
+
+          <div className={styles.animatedProductImgCon}>
+            <img src={clickedProduct?.image_link} alt={clickedProduct?.name} />
+          </div>
+        </div>
+      )}
+
       <div className={styles.wishlistItemsCont}>
         {/* Delete all btn */}
         {wishlistItems?.length > 1 && (
