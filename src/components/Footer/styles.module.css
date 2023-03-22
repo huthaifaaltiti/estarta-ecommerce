@@ -1,0 +1,202 @@
+/* Sector: main footer comp. classes */
+
+.footerBody {
+  width: 100%;
+  height: auto;
+
+  padding: 2rem;
+  margin-bottom: 1rem;
+
+  background-color: var(--color-gry-d-1);
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.box {
+  width: 33.33333%;
+  height: 15rem;
+
+  padding-left: 0.5rem;
+}
+
+.box:not(:last-of-type) {
+  border-right: 1px solid var(--color-gry-d-2);
+}
+
+.logoCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logoCont h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  padding-bottom: auto;
+}
+
+.socialLinksCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.socialLinksCont ul,
+.linksCont ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.socialLinksCont ul li,
+.linksCont ul li {
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+.socialLinksCont ul li:first-child,
+.linksCont ul li:first-child {
+  font-weight: 500;
+
+  margin-bottom: 2rem;
+
+  text-transform: uppercase;
+}
+
+.socialLinksCont ul li:not(:first-of-type),
+.linksCont ul li:not(:first-of-type) {
+  transition: all 0.1s linear;
+}
+
+.linksCont ul li:hover:not(:first-of-type) {
+  cursor: pointer;
+
+  color: var(--color-txt-l-2);
+}
+
+.socialIcons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.socialIcons span {
+  transition: all 0.1s linear;
+}
+
+.socialIcons span:hover {
+  cursor: pointer;
+
+  opacity: 0.7;
+}
+
+.email {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.email span:first-child {
+  width: 30%;
+}
+
+.email span:last-child {
+  width: 70%;
+}
+.email span:last-child input {
+  width: 80%;
+  height: 1.7rem;
+
+  padding: 0.9rem;
+
+  outline: none;
+  background-color: var(--color-gry-d-1);
+  border: 1px solid var(--color-gry-d-2);
+}
+
+.email span:last-child input::placeholder {
+  font-size: 1rem;
+  font-weight: 500;
+
+  color: var(--color-txt-l-3);
+}
+
+.socialLinksCont ul li:last-child {
+  padding-top: auto;
+}
+
+.socialLinksCont p {
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  color: var(--color-txt-l-2);
+}
+
+/* ****************** */
+/* Sector: media quires */
+
+/* 675/16 = 42.1875 */
+@media (max-width: 42em) {
+  .email {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+/* 651/16 = 40.6875 */
+@media (max-width: 40em) {
+  .footerBody {
+    flex-wrap: wrap;
+  }
+
+  .box {
+    width: auto;
+  }
+
+  .box:first-child {
+    padding-right: 10rem;
+  }
+  .socialLinksCont {
+    width: 100%;
+  }
+
+  .email {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .email span:first-child {
+    width: auto;
+  }
+
+  .email span:last-child {
+    width: auto;
+  }
+
+  .box:nth-child(2) {
+    padding-left: 1rem;
+
+    border-right: none;
+  }
+}
+
+/* 520/16 = 32.5 */
+@media (max-width: 32em) {
+  .box:first-child {
+    padding-right: 5rem;
+  }
+}
