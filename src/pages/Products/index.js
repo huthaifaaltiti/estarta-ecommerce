@@ -126,7 +126,8 @@ export default function Products() {
         ))}
       </div>
 
-      <Footer />
+      {/* footer */}
+      {products?.length > 1 && <Footer />}
     </>
   );
 }
