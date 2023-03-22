@@ -17,6 +17,8 @@
 .box {
   width: 33.33333%;
   height: 15rem;
+
+  padding-left: 0.5rem;
 }
 
 .box:not(:last-of-type) {
