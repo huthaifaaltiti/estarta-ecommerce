@@ -1,5 +1,5 @@
 // react
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // redux
 import { useDispatch, useSelector } from "react-redux";
 // action creator
@@ -25,8 +25,22 @@ export default function Products() {
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.productsReducer);
 
-  function handleAddToCart(product) {
+  // cart animation
+  const [clickedProduct, setClickedProduct] = useState(null);
+
+  function handleAddToCart(product, e) {
+    e.preventDefault();
+
+    // cart animation
+    setClickedProduct(product);
+    // cart animation
+
     dispatch(AddProductToCart(product));
+
+    // reset clicked product after 1 second
+    setTimeout(() => {
+      setClickedProduct(null);
+    }, 1000);
   }
 
   function handleAddToWishlist(product) {
@@ -39,6 +53,21 @@ export default function Products() {
 
   return (
     <div className={styles.pageBody}>
+      {/* animated product after clicking*/}
+      {clickedProduct && (
+        <div className={styles.animatedProduct}>
+          {/* animated product name */}
+          <div className={styles.animatedProductName}>
+            {clickedProduct?.name}
+          </div>
+
+          {/* animated product image */}
+          <div className={styles.animatedProductImgCon}>
+            <img src={clickedProduct?.image_link} alt={clickedProduct?.name} />
+          </div>
+        </div>
+      )}
+
       {products?.map((product) => (
         <div
           key={product?.id}
@@ -60,7 +89,7 @@ export default function Products() {
 
                 {/* cart icon */}
                 <BiCartAdd
-                  onClick={() => handleAddToCart(product)}
+                  onClick={(e) => handleAddToCart(product, e)}
                   className={styles.itemNameAddCartIcon}
                 />
               </div>
@@ -71,7 +100,7 @@ export default function Products() {
             <img
               className={styles.itemPic}
               src={product?.image_link}
-              alt="Item"
+              alt={product?.name}
             />
           </div>
 
