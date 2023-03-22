@@ -60,7 +60,7 @@ function App() {
 
   return (
     <div className="App">
-      <Suspense fallback={"Loading..."}>
+      <Suspense fallback={<Spinner />}>
         <NavBar />
 
         <Routes>

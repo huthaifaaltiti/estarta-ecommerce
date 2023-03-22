@@ -1,5 +1,5 @@
 // react
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 // redux
 import { useDispatch, useSelector } from "react-redux";
 // react-router-dom
@@ -16,6 +16,7 @@ export default function NavBar() {
   const { isAuth, user } = useSelector((state) => state.authReducer);
   const { cartItems } = useSelector((state) => state.cartReducer);
   const { wishlistItems } = useSelector((state) => state.WishlistReducer);
+  const logOutBoxRef = useRef();
 
   const locationOfUser = useLocation();
   const [showLoginBtn, setShowLoginBtn] = useState(true);
@@ -43,6 +44,27 @@ export default function NavBar() {
   function handleUserPanel() {
     setUserBtnClicked(!userBtnClicked);
   }
+
+  // close user pop-up after clicking on window
+  useEffect(() => {
+    /**
+     * Alert if clicked on outside of element
+     */
+    function handleClickOutside(event) {
+      if (
+        logOutBoxRef.current &&
+        !logOutBoxRef.current.contains(event.target)
+      ) {
+        setUserBtnClicked(false);
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [logOutBoxRef]);
 
   return (
     <nav>
@@ -94,7 +116,7 @@ export default function NavBar() {
           {/* user float box  */}
 
           {userBtnClicked && (
-            <div className={styles.authUserFloatingBox}>
+            <div className={styles.authUserFloatingBox} ref={logOutBoxRef}>
               <span>
                 <BiUserPin />
                 <span className={styles.authUserData}>{user?.email}</span>
@@ -103,7 +125,7 @@ export default function NavBar() {
               <span className={styles.wishlist}>
                 <Link to="/wishlist">
                   <AiFillHeart />
-                  Wishlist  ({wishlistItems?.length})
+                  Wishlist ({wishlistItems?.length})
                 </Link>
               </span>
 
