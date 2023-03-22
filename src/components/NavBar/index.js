@@ -20,7 +20,7 @@ export default function NavBar() {
 
   const locationOfUser = useLocation();
   const [showLoginBtn, setShowLoginBtn] = useState(true);
-  const [userBtnClicked, setUserBtnClicked] = useState(true);
+  const [userBtnClicked, setUserBtnClicked] = useState(false);
 
   const dispatch = useDispatch();
   const nav = useNavigate();
@@ -95,7 +95,7 @@ export default function NavBar() {
             Products
           </NavLink>
 
-          {/* Uer cart */}
+          {/* User cart */}
           <Link to="/cart">
             <span className={styles.authUserIcon}>
               <BiCart />
@@ -114,7 +114,6 @@ export default function NavBar() {
           </span>
 
           {/* user float box  */}
-
           {userBtnClicked && (
             <div className={styles.authUserFloatingBox} ref={logOutBoxRef}>
               <span>

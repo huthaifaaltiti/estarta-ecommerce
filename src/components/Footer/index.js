@@ -51,8 +51,12 @@ export default function Footer() {
           <li className={styles.email}>
             <span>Text us</span>
             <span className={styles.emailCon}>
-            
-              <input type="text" name="email" id="email" placeholder="Text here.."/>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                placeholder="Text here.."
+              />
             </span>
           </li>
         </ul>
