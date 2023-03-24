@@ -45,13 +45,19 @@ export default function Welcome() {
         </h1>
 
         {/* hide BlueBtn if logged-in */}
-        {!isAuth && (
-          <h2 className={`${styles.h2} ${styles.slideIn}`}>
-            <Link to="/login">
-              <BlueBtn className={styles.blueBtnWel} text="Login to continue" />
-            </Link>
-          </h2>
-        )}
+
+        <div className={styles.loginBtnCont}>
+          {!isAuth && (
+            <h2 className={`${styles.h2} ${styles.slideIn}`}>
+              <Link to="/login">
+                <BlueBtn
+                  className={styles.blueBtnWel}
+                  text="Login to continue"
+                />
+              </Link>
+            </h2>
+          )}
+        </div>
       </div>
     </>
   );

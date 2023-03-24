@@ -30,17 +30,26 @@
   color: var(--color-scd);
 }
 
+.loginBtnCont {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  bottom: 20%;
+  right: 0;
+  left: 0;
+}
+
 .h2 {
   font-size: 2rem;
 
   color: var(--color-txt-l-2);
 
   text-transform: uppercase;
-
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-  transform: translate(-50%, 0);
 }
 
 /* Pages items common  animation */

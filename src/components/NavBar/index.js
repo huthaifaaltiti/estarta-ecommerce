@@ -20,7 +20,7 @@ export default function NavBar() {
 
   const locationOfUser = useLocation();
   const [showLoginBtn, setShowLoginBtn] = useState(true);
-  const [userBtnClicked, setUserBtnClicked] = useState(false);
+  const [userBtnClicked, setUserBtnClicked] = useState(true);
 
   const dispatch = useDispatch();
   const nav = useNavigate();

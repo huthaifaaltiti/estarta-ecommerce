@@ -68,7 +68,6 @@ function cartReducer(state = initialState, action) {
         cartItems: [],
       };
 
-      
     default:
       return state;
   }
